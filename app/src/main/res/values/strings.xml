@@ -2,4 +2,12 @@
     <string name="app_name">EyojTFCase</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_sign_up">Sign Up\n</string>
+    <string name="label_name">UserName</string>
+    <string name="label_phone_number">Phone Number</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="label_confirm_password">Confirm Password</string>
+    <string name="label_create_account">Create Account</string>
+    <string name="eyoj_object_detekt">Eyoj Object Detekt</string>
 </resources>
