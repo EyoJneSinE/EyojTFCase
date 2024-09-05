@@ -3,7 +3,7 @@ package com.eniskaner.eyojtfcase.home.presentation.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.eniskaner.eyojtfcase.common.util.HomeUIState
+import com.eniskaner.eyojtfcase.home.domain.util.HomeUIState
 import com.eniskaner.eyojtfcase.home.data.repo.HomeRepository
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel

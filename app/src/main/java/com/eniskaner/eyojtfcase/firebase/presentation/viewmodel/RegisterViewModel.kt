@@ -3,7 +3,7 @@ package com.eniskaner.eyojtfcase.firebase.presentation.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.eniskaner.eyojtfcase.common.util.AuthUIState
+import com.eniskaner.eyojtfcase.firebase.domain.util.AuthUIState
 import com.eniskaner.eyojtfcase.firebase.domain.repo.ODRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

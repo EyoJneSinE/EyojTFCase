@@ -1,4 +1,4 @@
-package com.eniskaner.eyojtfcase.firebase.presentation.util
+package com.eniskaner.eyojtfcase.common.util
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle

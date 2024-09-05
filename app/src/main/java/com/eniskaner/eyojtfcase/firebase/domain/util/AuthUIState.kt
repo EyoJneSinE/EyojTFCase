@@ -1,4 +1,4 @@
-package com.eniskaner.eyojtfcase.common.util
+package com.eniskaner.eyojtfcase.firebase.domain.util
 
 sealed class AuthUIState<out T> {
     data object Loading: AuthUIState<Nothing>()

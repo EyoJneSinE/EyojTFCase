@@ -11,9 +11,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.eniskaner.eyojtfcase.R
 import com.eniskaner.eyojtfcase.common.base.BaseFragment
-import com.eniskaner.eyojtfcase.common.util.HomeUIState
+import com.eniskaner.eyojtfcase.home.domain.util.HomeUIState
 import com.eniskaner.eyojtfcase.databinding.FragmentHomeBinding
-import com.eniskaner.eyojtfcase.firebase.presentation.util.launchAndRepeatWithViewLifecycle
+import com.eniskaner.eyojtfcase.common.util.launchAndRepeatWithViewLifecycle
 import com.eniskaner.eyojtfcase.home.presentation.viewmodel.HomeViewModel
 import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.launch

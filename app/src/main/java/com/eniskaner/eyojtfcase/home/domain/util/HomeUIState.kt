@@ -1,4 +1,4 @@
-package com.eniskaner.eyojtfcase.common.util
+package com.eniskaner.eyojtfcase.home.domain.util
 
 sealed class HomeUIState<out T> {
     data object Loading: HomeUIState<Nothing>()

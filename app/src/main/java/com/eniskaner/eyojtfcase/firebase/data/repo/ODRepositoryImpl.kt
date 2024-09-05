@@ -1,22 +1,14 @@
 package com.eniskaner.eyojtfcase.firebase.data.repo
 
-import com.eniskaner.eyojtfcase.common.util.AuthUIState
+import com.eniskaner.eyojtfcase.firebase.domain.util.AuthUIState
 import com.eniskaner.eyojtfcase.common.util.Constants.USER
 import com.eniskaner.eyojtfcase.common.util.Constants.USER_ALREADY_EXIST
 import com.eniskaner.eyojtfcase.common.util.Constants.USER_DATA_CANT_FOUND
 import com.eniskaner.eyojtfcase.common.util.Constants.USER_NOT_FOUND_OR_PASSWORD_WRONG
-import com.eniskaner.eyojtfcase.common.util.Resource
 import com.eniskaner.eyojtfcase.firebase.data.model.ODUserModel
 import com.eniskaner.eyojtfcase.firebase.domain.repo.ODRepository
-import com.eniskaner.eyojtfcase.firebase.presentation.state.ODUIModelState
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.launchIn
-import retrofit2.HttpException
-import java.io.IOError
-import java.io.IOException
 
 class ODRepositoryImpl(
     private val firebaseAuth: FirebaseAuth,

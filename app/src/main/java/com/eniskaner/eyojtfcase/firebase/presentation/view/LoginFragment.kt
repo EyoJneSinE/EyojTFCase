@@ -11,9 +11,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.eniskaner.eyojtfcase.R
 import com.eniskaner.eyojtfcase.common.base.BaseFragment
-import com.eniskaner.eyojtfcase.common.util.AuthUIState
+import com.eniskaner.eyojtfcase.firebase.domain.util.AuthUIState
 import com.eniskaner.eyojtfcase.databinding.FragmentLoginBinding
-import com.eniskaner.eyojtfcase.firebase.presentation.util.launchAndRepeatWithViewLifecycle
+import com.eniskaner.eyojtfcase.common.util.launchAndRepeatWithViewLifecycle
 import com.eniskaner.eyojtfcase.firebase.presentation.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

@@ -3,7 +3,7 @@ package com.eniskaner.eyojtfcase.home.domain.repo
 import com.eniskaner.eyojtfcase.common.util.Constants.SUGAR_BEET_COUNT
 import com.eniskaner.eyojtfcase.common.util.Constants.USER
 import com.eniskaner.eyojtfcase.common.util.Constants.USER_DATA_CANT_FOUND
-import com.eniskaner.eyojtfcase.common.util.HomeUIState
+import com.eniskaner.eyojtfcase.home.domain.util.HomeUIState
 import com.eniskaner.eyojtfcase.home.data.repo.HomeRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
