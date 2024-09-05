@@ -15,8 +15,10 @@ import com.eniskaner.eyojtfcase.common.util.AuthUIState
 import com.eniskaner.eyojtfcase.databinding.FragmentLoginBinding
 import com.eniskaner.eyojtfcase.firebase.presentation.util.launchAndRepeatWithViewLifecycle
 import com.eniskaner.eyojtfcase.firebase.presentation.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     private val loginViewModel: LoginViewModel by viewModels()
