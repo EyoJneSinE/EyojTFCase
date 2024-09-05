@@ -12,4 +12,7 @@
     <string name="eyoj_object_detekt">Eyoj Object Detekt</string>
     <string name="label_sign_in">Sign In</string>
     <string name="label_login">Login</string>
+    <string name="number_of_detections">Number of Detections</string>
+    <string name="detekt_count">0</string>
+    <string name="detekt">Detekt</string>
 </resources>
