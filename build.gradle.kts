@@ -7,4 +7,5 @@ plugins {
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.kotlin.kapt) apply false
     alias(libs.plugins.kotlin.parcelize) apply false
+    alias(libs.plugins.gms.googleServices) apply false
 }

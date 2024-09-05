@@ -29,6 +29,19 @@ retrofitVersion = "2.11.0"
 okHttpVersion = "4.12.0"
 kotlinPlugin = "1.8.10"
 
+# Firebase Services
+# https://firebase.google.com/support/release-notes/android
+firebase-analytics = "22.1.0"
+firebase-bom = "33.2.0"
+firebase-config = "22.0.0"
+firebase-crashlytics = "19.0.3"
+firebase-crashlytics-gradle = "3.0.2"
+firebase-messaging = "24.0.1"
+firebase-auth = "23.0.0"
+gms-googleServices = "4.4.2"
+firebase-firestore = "25.0.0"
+firebase-firestore-storage = "21.0.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -70,6 +83,17 @@ retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", ver
 okHttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okHttpVersion" }
 # Gson
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gsonVersion" }
+# Services
+firebase-analytics = { module = "com.google.firebase:firebase-analytics", version.ref = "firebase-analytics" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
+firebase-config = { module = "com.google.firebase:firebase-config", version.ref = "firebase-config" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics", version.ref = "firebase-crashlytics" }
+firebase-crashlytics-gradle = { module = "com.google.firebase:firebase-crashlytics-gradle", version.ref = "firebase-crashlytics-gradle" }
+firebase-messaging = { module = "com.google.firebase:firebase-messaging", version.ref = "firebase-messaging" }
+firebase-auth = { module = "com.google.firebase:firebase-auth", version.ref = "firebase-auth"}
+firebase-firestore = { module = "com.google.firebase:firebase-firestore", version.ref = "firebase-firestore"}
+firebase-firestore-storage = { module = "com.google.firebase:firebase-firestore", version.ref = "firebase-firestore-storage"}
+gms-googleServices = { module = "com.google.gms:google-services", version.ref = "gms-googleServices" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -79,4 +103,7 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize",  version.ref = "kotlinPlugin" }
+
+firebase-crashlitycs = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-gradle"}
+gms-googleServices = { id = "com.google.gms.google-services", version.ref = "gms-googleServices"}
 
