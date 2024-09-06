@@ -28,7 +28,6 @@ import android.os.Handler
 import android.os.HandlerThread
 import android.util.Size
 import android.util.SparseIntArray
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Surface
 import android.view.TextureView
@@ -37,11 +36,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
 import com.eniskaner.eyojtfcase.R
-import java.util.ArrayList
+import com.eniskaner.eyojtfcase.mainactivity.presentation.view.MainActivity
+import com.eniskaner.eyojtfcase.objectdetekt.presentation.customview.AutoFitTextureView
 import java.util.Arrays
 import java.util.Collections
-import java.util.Comparator
 import java.util.concurrent.Semaphore
 import java.util.concurrent.TimeUnit
 
@@ -279,7 +279,7 @@ class CameraConnectionFragment @SuppressLint("ValidFragment") private constructo
     private fun setUpCameraOutputs() {
         val activity = activity
         val manager =
-            activity.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+            activity?.getSystemService(Context.CAMERA_SERVICE) as CameraManager
         try {
             val characteristics = manager.getCameraCharacteristics(cameraId!!)
             val map =
@@ -307,8 +307,8 @@ class CameraConnectionFragment @SuppressLint("ValidFragment") private constructo
         } catch (e: NullPointerException) {
             // Currently an NPE is thrown when the Camera2API is used but not supported on the
             // device this code runs.
-            ErrorDialog.newInstance("getString(R.string.tfe_ic_camera_error)")
-                .show(childFragmentManager, FRAGMENT_DIALOG)
+            /*ErrorDialog.newInstance("getString(R.string.tfe_ic_camera_error)")
+                .show(childFragmentManager, FRAGMENT_DIALOG)*/
             throw IllegalStateException("getString(R.string.tfe_ic_camera_error)")
         }
         cameraConnectionCallback.onPreviewSizeChosen(previewSize, sensorOrientation!!)
@@ -320,15 +320,17 @@ class CameraConnectionFragment @SuppressLint("ValidFragment") private constructo
         configureTransform(width, height)
         val activity = activity
         val manager =
-            activity.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+            activity?.getSystemService(Context.CAMERA_SERVICE) as CameraManager
         try {
             if (!cameraOpenCloseLock.tryAcquire(2500, TimeUnit.MILLISECONDS)) {
                 throw RuntimeException("Time out waiting to lock camera opening.")
             }
-            if (ActivityCompat.checkSelfPermission(
-                    getActivity(),
-                    Manifest.permission.CAMERA
-                ) != PackageManager.PERMISSION_GRANTED
+            if (getActivity()?.let {
+                    ActivityCompat.checkSelfPermission(
+                        it,
+                        Manifest.permission.CAMERA
+                    )
+                } != PackageManager.PERMISSION_GRANTED
             ) {
                 // TODO: Consider calling
                 //    ActivityCompat#requestPermissions

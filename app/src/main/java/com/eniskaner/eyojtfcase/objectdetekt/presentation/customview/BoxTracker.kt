@@ -10,6 +10,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.util.Pair
 import android.util.TypedValue
+import com.eniskaner.eyojtfcase.ml.Detect
 import java.util.LinkedList
 import java.util.Queue
 
@@ -57,7 +58,7 @@ class IBoxTracker(context: Context) {
 
     @Synchronized
     fun trackResults(
-        results: List<Detector.Recognition>,
+        results: List<Detect.Outputs>,
         timestamp: Long
     ) {
         processResults(results)
@@ -100,25 +101,26 @@ class IBoxTracker(context: Context) {
         }
     }
 
-    private fun processResults(results: List<Detector.Recognition>) {
-        val rectsToTrack: MutableList<Pair<Float, Detector.Recognition>> =
-            LinkedList<Pair<Float, Detector.Recognition>>()
+    private fun processResults(results: List<Detect.Outputs>) {
+        val rectsToTrack: MutableList<Pair<Float, Detect.Outputs>> =
+            LinkedList<Pair<Float, Detect.Outputs>>()
         screenRects.clear()
         val rgbFrameToScreen =
             Matrix(frameToCanvasMatrix)
-        for (result in results) {
-            if (result.getLocation() == null) {
+        /*for (result in results) {
+            if (result.outputFeature0AsTensorBuffer == null) {
                 continue
             }
-            val detectionFrameRect = RectF(result.getLocation())
+            result.outputFeature0AsTensorBuffer
+            //val detectionFrameRect = RectF(result.outputFeature0AsTensorBuffer)
             val detectionScreenRect = RectF()
-            rgbFrameToScreen.mapRect(detectionScreenRect, detectionFrameRect)
+            rgbFrameToScreen.mapRect(detectionScreenRect, detectionScreenRect)
 
 //      logger.v(
 //          "Result! Frame: " + result.getLocation() + " mapped to screen:" + detectionScreenRect);
             screenRects.add(
                 Pair(
-                    result.confidence!!,
+              *//*      result.outputFeature0AsTensorBuffer!!,
                     detectionScreenRect
                 )
             )
@@ -131,8 +133,8 @@ class IBoxTracker(context: Context) {
                     result.confidence,
                     result
                 )
-            )
-        }
+            )*//*
+        }*/
         trackedObjects.clear()
         if (rectsToTrack.isEmpty()) {
             // logger.v("Nothing to track, aborting.");
@@ -141,8 +143,8 @@ class IBoxTracker(context: Context) {
         for (potential in rectsToTrack) {
             val trackedRecognition = TrackedRecognition()
             trackedRecognition.detectionConfidence = potential.first
-            trackedRecognition.location = RectF(potential.second.getLocation())
-            trackedRecognition.title = potential.second.title
+            //trackedRecognition.location = RectF(potential.second.getLocation())
+            //trackedRecognition.title = potential.second.title
             trackedRecognition.color = COLORS[trackedObjects.size]
             trackedObjects.add(trackedRecognition)
             if (trackedObjects.size >= COLORS.size) {
