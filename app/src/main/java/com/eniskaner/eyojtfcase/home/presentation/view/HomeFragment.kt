@@ -11,14 +11,15 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.eniskaner.eyojtfcase.R
 import com.eniskaner.eyojtfcase.common.base.BaseFragment
-import com.eniskaner.eyojtfcase.home.domain.util.HomeUIState
-import com.eniskaner.eyojtfcase.databinding.FragmentHomeBinding
 import com.eniskaner.eyojtfcase.common.util.launchAndRepeatWithViewLifecycle
+import com.eniskaner.eyojtfcase.databinding.FragmentHomeBinding
+import com.eniskaner.eyojtfcase.home.domain.util.HomeUIState
 import com.eniskaner.eyojtfcase.home.presentation.viewmodel.HomeViewModel
-import dagger.hilt.android.HiltAndroidApp
+import com.eniskaner.eyojtfcase.mainactivity.presentation.view.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-@HiltAndroidApp
+@AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private val viewModel: HomeViewModel by viewModels()
@@ -28,6 +29,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as? MainActivity)?.actionBar?.show()
 
         clickDetektButton()
         observeSugarBeetCount()
@@ -43,7 +46,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     android.Manifest.permission.CAMERA
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
-                navController.navigate(R.id.main)
+                navController.navigate(R.id.action_homeFragment_to_cameraFragment)
             } else {
                 requireContext().checkSelfPermission(android.Manifest.permission.CAMERA)
                 //requestPermissions(arrayOf(android.Manifest.permission.CAMERA), 101)

@@ -11,9 +11,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.eniskaner.eyojtfcase.R
 import com.eniskaner.eyojtfcase.common.base.BaseFragment
-import com.eniskaner.eyojtfcase.firebase.domain.util.AuthUIState
-import com.eniskaner.eyojtfcase.databinding.FragmentLoginBinding
 import com.eniskaner.eyojtfcase.common.util.launchAndRepeatWithViewLifecycle
+import com.eniskaner.eyojtfcase.databinding.FragmentLoginBinding
+import com.eniskaner.eyojtfcase.firebase.domain.util.AuthUIState
 import com.eniskaner.eyojtfcase.firebase.presentation.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -27,13 +27,16 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         findNavController()
     }
 
+    override fun setBinding(): FragmentLoginBinding =
+        FragmentLoginBinding.inflate(layoutInflater)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         isUserLoggedIn = loginViewModel.isUserLoggedIn
 
         if (isUserLoggedIn) {
-            navController.navigate(R.id.main)
+            navController.navigate(R.id.action_loginFragment_to_homeFragment)
         }
 
         passwordFocusListener()
@@ -45,14 +48,17 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             )
         }
 
+        binding.buttonSignUp.setOnClickListener {
+            navController.navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+
         launchAndRepeatWithViewLifecycle {
             launch {
                 observeSignInState()
             }
         }
     }
-    override fun setBinding(): FragmentLoginBinding =
-        FragmentLoginBinding.inflate(layoutInflater)
+
 
     private fun observeSignInState() {
         loginViewModel.signInFirebaseState.observe(viewLifecycleOwner) { state ->
@@ -69,7 +75,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
                 is AuthUIState.Success -> {
                     binding.progressIndicator.isVisible = false
-                    navController.navigate(R.id.main)
+                    navController.navigate(R.id.action_loginFragment_to_homeFragment)
                 }
             }
         }

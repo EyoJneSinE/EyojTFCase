@@ -11,9 +11,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.eniskaner.eyojtfcase.R
 import com.eniskaner.eyojtfcase.common.base.BaseFragment
-import com.eniskaner.eyojtfcase.firebase.domain.util.AuthUIState
-import com.eniskaner.eyojtfcase.databinding.FragmentRegisterBinding
 import com.eniskaner.eyojtfcase.common.util.launchAndRepeatWithViewLifecycle
+import com.eniskaner.eyojtfcase.databinding.FragmentRegisterBinding
+import com.eniskaner.eyojtfcase.firebase.domain.util.AuthUIState
 import com.eniskaner.eyojtfcase.firebase.presentation.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -93,7 +93,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
                     binding.progressIndicator.isVisible = false
                     Toast.makeText(requireContext(), "Successfully signed up", Toast.LENGTH_SHORT)
                         .show()
-                    navController.navigate(R.id.main)
+                    navController.navigate(R.id.action_registerFragment_to_loginFragment)
                 }
             }
         }
