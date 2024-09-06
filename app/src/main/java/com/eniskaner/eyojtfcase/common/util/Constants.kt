@@ -7,4 +7,6 @@ object Constants {
     const val USER_NOT_FOUND_OR_PASSWORD_WRONG = "User email not found or password wrong"
     const val SUGAR_BEET_COUNT = "sugarBeetCount"
     const val SUGAR_BEET_COUNT_UPDATED = "Sugar Beet Count Updated!!!"
+    const val VIDEO_THREAD = "videoThread"
+    const val LABELS_TXT = "labelmap.txt"
 }
